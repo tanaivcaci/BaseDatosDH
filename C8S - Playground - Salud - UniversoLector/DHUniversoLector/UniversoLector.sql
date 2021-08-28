@@ -38,8 +38,8 @@ CREATE TABLE Libro (
     codigo INT NOT NULL,
     isbn VARCHAR(13) NULL,
     titulo VARCHAR(200) NULL,
-    anio_escritura DATE,
-    anio_edicion DATE,
+    anio_escritura YEAR,
+    anio_edicion YEAR,
     codigo_autor INT NULL,
     codigo_editorial INT NULL,
     PRIMARY KEY (codigo),
@@ -80,8 +80,7 @@ CREATE TABLE PrestamoxVolumen (
         REFERENCES UniversoLector.Volumen (codigo)
 );
 
-INSERT INTO `UniversoLector`.`Autor` (`codigo`, `apellido`, `nombres`) 
-VALUES ('1', 'Rowling', 'J. K.');
+INSERT INTO `UniversoLector`.`Autor` (`codigo`, `apellido`, `nombres`) VALUES ('1', 'Rowling', 'J. K.');
 
 INSERT INTO `UniversoLector`.`Editorial` (`codigo`, `razon_social`, `telefono`) VALUES ('1', 'Bloomsbury Publishing', '54911564874');
 INSERT INTO `UniversoLector`.`Editorial` (`codigo`, `razon_social`, `telefono`) VALUES ('2', 'Scholastic', '223483646');
@@ -90,10 +89,10 @@ INSERT INTO `UniversoLector`.`Editorial` VALUES ('4', 'Editorial Salamandra', '0
 
 INSERT INTO `UniversoLector`.`Libro` 
 (`codigo`, `isbn`, `titulo`, `anio_escritura`, `anio_edicion`, `codigo_autor`, `codigo_editorial`) 
-VALUES ('1', '9781907545009', 'Harry Potter y la piedra filosofal', '1997-01-01', '1997-01-01', '1', '4');
+VALUES ('1', '9781907545009', 'Harry Potter y la piedra filosofal', '1997', '1997', '1', '4');
 INSERT INTO `UniversoLector`.`Libro` 
 (`codigo`, `isbn`, `titulo`, `anio_escritura`, `anio_edicion`, `codigo_autor`, `codigo_editorial`) 
-VALUES ('2', '9789878000114', 'Harry Potter Y La Camara Secreta ', '2020-01-01', '2020-01-01', '1', '4');
+VALUES ('2', '9789878000114', 'Harry Potter Y La Camara Secreta ', '2020', '2020', '1', '4');
 
 INSERT INTO `UniversoLector`.`Socio` (`codigo`, `dni`, `apellido`, `nombres`, `direccion`, `localidad`) VALUES ('1', '3000000', 'PATRICIA', 'JOHNSON', '28 MySQL Boulevard', 'QLD');
 INSERT INTO `UniversoLector`.`Socio` (`codigo`, `dni`, `apellido`, `nombres`, `direccion`, `localidad`) VALUES ('2', '2988800', 'LINDA', 'WILLIAMS', '23 Workhaven Lane', 'Alberta');
@@ -107,6 +106,8 @@ INSERT INTO `UniversoLector`.`Volumen` (`codigo`, `deteriorado`, `codigo_libro`)
 
 INSERT INTO `UniversoLector`.`Prestamo` (`codigo`, `fecha`, `fecha_devolucion`, `fecha_tope`, `codigo_socio`) VALUES ('2', '2020-01-07', '2020-01-15', '2020/01/14', '1');
 INSERT INTO `UniversoLector`.`Prestamo` (`codigo`, `fecha`, `fecha_devolucion`, `fecha_tope`, `codigo_socio`) VALUES ('3', '2020-03-04', '2020-03-08', '2020-11-03', '2');
+INSERT INTO `UniversoLector`.`Prestamo` (`codigo`, `fecha`, `fecha_devolucion`, `fecha_tope`, `codigo_socio`) 
+VALUES ('1', '2020-01-01', '2020-01-07', '2020-07-01', '2');
 
 INSERT INTO `UniversoLector`.`PrestamoxVolumen` (`codigo`, `codigo_prestamo`, `codigo_volumen`) VALUES ('1', '1', '1');
 INSERT INTO `UniversoLector`.`PrestamoxVolumen` (`codigo`, `codigo_prestamo`, `codigo_volumen`) VALUES ('2', '2', '2');
