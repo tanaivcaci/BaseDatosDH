@@ -187,4 +187,50 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
+#CARGA DE DATOS
 
+INSERT INTO `spotify-equipo2`.`password` (`idPassword`, `vencimiento`, `pass`)
+VALUES ('1', '2020-09-30', 'passBlabla');
+
+INSERT INTO `spotify-equipo2`.`password` VALUES ('2', '2020-10-30', 'otroPass');
+
+INSERT INTO `spotify-equipo2`.`password` VALUES ('3', '2020-12-30', 'anotherPass');
+
+
+
+INSERT INTO `spotify-equipo2`.`usuario` 
+(`idUsuario`, `mail`, `fechaDeNacimiento`, `sexo`, `codigoPostal`, `pais`, `password_idPassword`)
+VALUES ('1', 'tanaicc@gmail.com', '1982-12-07', '0', '5500', 'Argentina', '1');
+
+INSERT INTO `spotify-equipo2`.`usuario` VALUES
+('2', 'chuchu@gmail.com', '2000-12-07', '1', '1000', 'Argentina', '2');
+
+INSERT INTO `spotify-equipo2`.`usuario` VALUES
+('2', 'chacha@gmail.com', '2001-06-07', '1', '4000', 'Argentina', '3');
+
+
+
+INSERT INTO `spotify-equipo2`.`artista`
+(`idArtista`, `nombreArtista`, `imgArtista`)
+VALUES (1, 'Charly García', NULL);
+
+INSERT INTO `spotify-equipo2`.`discografica`
+(`idDiscografica`, `nombreDiscografica`, `paisDiscografica`)
+VALUES (1, 'Sony Music', 'Argentina');
+
+
+INSERT INTO `spotify-equipo2`.`album`
+(`idAlbum`, `titulo`, `publicacion`, `imgPortada`, `artista_idArtista`, `discografica_idDiscografica`)
+VALUES (1, 'Adios Sui Generis', 1975, NULL, 1, 1);
+
+INSERT INTO `spotify-equipo2`.`cancion` 
+(`idCancion`, `tituloCancion`, `duracionSeg`, `reproduccion`, `like`, `album_idAlbum`)
+VALUES (1, 'Eiti Leda', 150, 100, 1000, '1');
+
+INSERT INTO `spotify-equipo2`.`cancion` 
+(`idCancion`, `tituloCancion`, `duracionSeg`, `reproduccion`, `like`, `album_idAlbum`)
+VALUES (2, 'Cuando ya me empiece a quedar solo', 1500, 90, 1000, '1');
+
+INSERT INTO `spotify-equipo2`.`cancion` 
+(`idCancion`, `tituloCancion`, `duracionSeg`, `reproduccion`, `like`, `album_idAlbum`)
+VALUES (3, 'Fabricante', 190, 100, 1000, '1');
