@@ -77,12 +77,12 @@ ORDER BY PrecioUnitario DESC;
 
 #2. Obtener el listado de top 5 de productos cuyo precio unitario es el más caro. 
 SELECT * FROM Productos 
-ORDER BY PrecioUnitario 
+ORDER BY PrecioUnitario DESC
 LIMIT 5;
 
 #3. Obtener un top 10 de los productos con más unidades en stock. 
 SELECT * FROM Productos 
-ORDER BY UnidadesStock 
+ORDER BY UnidadesStock DESC
 LIMIT 10;
 
 /* FacturaDetalle */
@@ -102,7 +102,7 @@ ORDER BY Cantidad DESC;
 
 -- 4. En otro listado nuevo, obtener un listado con los siguientes nombres de columnas: 
 -- NroFactura (FacturaID), Producto (ProductoID), Total (PrecioUnitario*Cantidad). 
-SELECT FacturaID, ProductoID, PrecioUnitario * Cantidad AS Total 
+SELECT FacturaID AS NroFactura, ProductoID AS Producto, PrecioUnitario * Cantidad AS Total 
 FROM FacturaDetalle; 
 
 /* 4. ¡Extras! 
@@ -143,7 +143,7 @@ OR ClienteID LIKE 'B%';
 
 #6. ¿Existen facturas que la ciudad de envío sea “Vancouver” o que utilicen el correo 3? 
 SELECT * FROM Facturas
-WHERE CiudadEnvio LIKE 'Vancouver'
+WHERE CiudadEnvio = 'Vancouver'
 OR EnvioVia = 3;
 
 #7. ¿Cuál es el ID de empleado de “Buchanan”? 
