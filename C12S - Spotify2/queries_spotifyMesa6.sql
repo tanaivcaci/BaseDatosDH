@@ -99,6 +99,30 @@ SELECT * FROM cancion;
 # DELETE FROM cancion 
 # WHERE idCancion IN (6, 7, 8, 9, 11, 12, 13, 14, 15, 18, 19, 20, 21, 22, 23, 24, 25, 79, 85, 130, 133);
 
+#Para habilitar (1) o deshabilitar (0) el modo seguro [delete, update, truncate]
+SET sql_safe_updates = 1;
+
+SELECT * FROM generoxcancion
+WHERE IdGenero = 9
+ORDER BY IdCancion;
+
+#Para desactivar la verificación de clave foranea
+SET FOREIGN_KEY_CHECKS=0;
+
+   DELETE FROM cancion 
+     WHERE idcancion IN
+       (SELECT idcancion FROM generoxcancion
+        WHERE IdGenero = 9);
+
+#Para rehabilitar la verificación de llaves foráneas
+SET FOREIGN_KEY_CHECKS=1;
+
+DELETE FROM spotify2.generoxcancion
+WHERE IdGenero = 9;
+
+select * from cancion;
+
+
 DELETE FROM cancion 
 WHERE idCancion IN (SELECT idCancion FROM generoxcancion WHERE idGenero = 9);
 
