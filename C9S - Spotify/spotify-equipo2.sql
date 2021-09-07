@@ -209,7 +209,6 @@ INSERT INTO `spotify-equipo2`.`usuario` VALUES
 ('2', 'chacha@gmail.com', '2001-06-07', '1', '4000', 'Argentina', '3');
 
 
-
 INSERT INTO `spotify-equipo2`.`artista`
 (`idArtista`, `nombreArtista`, `imgArtista`)
 VALUES (1, 'Charly García', NULL);
