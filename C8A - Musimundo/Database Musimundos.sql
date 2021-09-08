@@ -390,3 +390,14 @@ FROM canciones;
 SELECT id_cliente, SUM(total) 
 FROM facturas
 GROUP BY id_cliente;
+
+
+#C13A 
+# En el salón de Musimundos tenemos un cliente fanático de Willie Dixon, quiere comprar toda la colección de sus temas, pero NO le interesan los temas que sean de su etapa en el rock. (id=1)
+
+# Hagamos una consulta en la base de datos donde muestre todos los registros que contengan canciones con sus géneros, Y que el compositor sea Willie Dixon, Y que tengan el género Blues.
+
+SELECT canciones.id, canciones.nombre, id_genero, generos.nombre, compositor
+FROM canciones, generos 
+WHERE id_genero = generos.id
+AND compositor = 'Willie Dixon';
