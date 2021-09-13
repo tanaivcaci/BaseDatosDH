@@ -155,3 +155,4 @@ WHERE Apellido LIKE 'Buchanan';
 
 SELECT * FROM Facturas
 WHERE EmpleadoID = 5;
+
