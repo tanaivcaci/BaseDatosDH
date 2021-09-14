@@ -58,14 +58,23 @@ SELECT customer.customer_id as idCliente, COUNT(rental.customer_id) as CantAlq, 
 FROM customer
 INNER JOIN payment ON customer.customer_id = payment.customer_id
 INNER JOIN rental ON payment.rental_id = rental.rental_id
-WHERE SUM(amount) > 150
-GROUP BY customer_id
-;
+GROUP BY idcliente
+having SUM(amount) > 150;
+
 
 
 
 # 5. Generar un reporte que muestre por mes de alquiler (rental_date de tabla rental), la cantidad de alquileres y la suma total pagada (amount de tabla payment) para el año de alquiler 2005 (rental_date de tabla rental).
 
+SELECT * FROM rental; 
+SELECT * FROM payment; 
+
+SELECT COUNT(rental.rental_id) as cantAlq, month(rental_date), SUM(amount)
+FROM rental
+INNER JOIN payment
+ON payment.rental_id = rental.rental_id
+WHERE YEAR(rental_date) = 2005
+GROUP BY MONTH(rental_date);
 
 
 # 6. Generar un reporte que responda a la pregunta: ¿cuáles son los 5 inventarios más alquilados? (columna inventory_id en la tabla rental). Para cada una de ellas indicar la cantidad de alquileres.
