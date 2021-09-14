@@ -157,6 +157,51 @@ SELECT * FROM Facturas
 WHERE EmpleadoID = 5;
 
 
+
+#C14S - EMARKET
+# Join
+# Consignas
+# Clientes
+# 1) ¿Cuántos clientes existen?
+
+SELECT COUNT(*) FROM Clientes;
+
+# 2) ¿Cuántos clientes hay por ciudad?
+
+SELECT COUNT(*), ciudad FROM Clientes GROUP BY ciudad; 
+
+# FACTURAS
+# 1) ¿Cuál es el total de transporte?
+
+SELECT SUM(Transporte) AS  'Total Transporte' FROM Facturas; 
+
+# 2) ¿Cuál es el total de transporte por EnvioVia (empresa de envío)?
+
+SELECT SUM(Transporte), EnvioVia FROM Facturas GROUP BY EnvioVia; 
+
+# 3) Calcular la cantidad de facturas por cliente. Ordenar descendentemente por cantidad de facturas.
+
+SELECT ClienteID, COUNT(ClienteID) AS CantidadFacturas 
+FROM Facturas 
+GROUP BY ClienteID 
+ORDER BY CantidadFacturas DESC; 
+
+# 4) Obtener el Top 5 de clientes de acuerdo a su cantidad de facturas.
+
+SELECT ClienteID, COUNT(ClienteID) AS CantidadFacturas 
+FROM Facturas 
+GROUP BY ClienteID 
+ORDER BY CantidadFacturas DESC
+LIMIT 5; 
+
+# 5) ¿Cuál es el país de envío menos frecuente de acuerdo a la cantidad de facturas?
+SELECT * FROM Facturas; 
+
+SELECT PaisEnvio, COUNT(PaisEnvio) AS CantidadFacturas 
+FROM Facturas 
+GROUP BY PaisEnvio 
+ORDER BY CantidadFacturas;
+
 ###############################################################
 #C14S - DML - QUERIES AGREGADAS - QUERIES XL Parte 1 - GROUP BY
 
@@ -295,4 +340,3 @@ INNER JOIN Facturas ON Clientes.ClienteID = Facturas.ClienteID
 INNER JOIN FacturaDetalle ON Facturas.FacturaID = FacturaDetalle.FacturaID
 GROUP BY ClienteID, FacturaID, FechaFactura
 ORDER BY FechaFactura DESC; 
-
