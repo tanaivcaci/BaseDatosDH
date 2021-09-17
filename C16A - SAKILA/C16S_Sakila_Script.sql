@@ -122,11 +122,16 @@ SELECT * FROM vista_mostrar_pais;
 
 CREATE VIEW artistas_resumen AS
 SELECT 
-concat(last_name, ' ' , first_name) AS 'Artista', 
-COUNT(film_actor.actor_id) AS 'Cantidad_de_films'
+concat(first_name, ' ' , last_name) AS 'Artista', 
+COUNT(film_actor.film_id) AS 'Cantidad_de_films'
 FROM actor
 INNER JOIN film_actor ON actor.actor_id = film_actor.actor_id
-GROUP BY Artista;
+-- INNER JOIN film ON film.film_id = film_actor.film_id
+GROUP BY Artista
+HAVING Cantidad_de_films > 25
+ORDER BY Artista;
+
+
 
 # b) Invocar la vista creada.
 SELECT * FROM artistas_resumen;
@@ -135,7 +140,9 @@ SELECT * FROM artistas_resumen;
 # c) En la misma invocación de la vista, traer aquellos artistas que tienen menos de 33 filmaciones.
 
 SELECT * FROM artistas_resumen
-HAVING 'Cantidad_de_films' < 33;
+HAVING Cantidad_de_films < 33;
+
+
 
 # d) Con la misma sentencia anterior, ahora, mostrar el apellido y nombre de los artistas en minúsculas y traer solo aquellos artistas cuyo apellido comience con la letra "a".
 

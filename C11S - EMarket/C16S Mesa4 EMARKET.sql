@@ -6,13 +6,15 @@
 
 SELECT * FROM Facturas;
 
-SELECT f.FacturaID, f.FechaFactura, c.Compania, cl.Contacto, cat.CategoriaNombre, p.ProductoNombre, p.PrecioUnitario, fd.Cantidad
+SELECT f.FacturaID, f.FechaFactura, c.Compania, cl.Contacto, cat.CategoriaNombre, 
+p.ProductoNombre, p.PrecioUnitario, fd.Cantidad
 FROM Facturas f
 INNER JOIN Correos c ON f.EnvioVia = c.CorreoID
 INNER JOIN Clientes cl ON f.ClienteID = cl.ClienteID
 INNER JOIN FacturaDetalle fd ON f.FacturaID = fd.FacturaID
 INNER JOIN Productos p ON fd.ProductoID = p.ProductoID
-INNER JOIN Categorias cat ON cat.CategoriaID = p.CategoriaID; 
+INNER JOIN Categorias cat ON cat.CategoriaID = p.CategoriaID
+ORDER BY Compania; 
 
 
 # Reportes parte II - INNER, LEFT Y RIGHT JOIN
@@ -32,9 +34,9 @@ WHERE Facturas.ClienteID IS NULL;
 # 3. Realizar un listado de productos. Para cada uno indicar su nombre, categoría, y la información de contacto de su proveedor. Tener en cuenta que puede haber productos para los cuales no se indicó quién es el proveedor.
 
 SELECT ProductoNombre, ca.CategoriaNombre, pro.Contacto
-FROM Productos pr
-INNER JOIN Categorias ca ON ca.CategoriaID = pr.CategoriaID
-RIGHT JOIN Proveedores pro ON pro.ProveedorID = pr.ProveedorID;
+FROM Categorias ca
+INNER JOIN Productos pr ON ca.CategoriaID = pr.CategoriaID
+left JOIN Proveedores pro ON pro.ProveedorID = pr.ProveedorID;
 
 SELECT ProductoNombre, pro.Contacto
 FROM Productos pr
@@ -50,8 +52,8 @@ SELECT AVG(PrecioUnitario) FROM Productos WHERE CategoriaID = 1;
 #query definitiva
 SELECT Categorias.CategoriaID, CategoriaNombre, 
 AVG(PrecioUnitario) as PromedioPU
-FROM Productos 
-INNER JOIN Categorias ON Productos.CategoriaID = Categorias.CategoriaID
+FROM Categorias 
+LEFT JOIN Productos ON Productos.CategoriaID = Categorias.CategoriaID
 GROUP BY Categorias.CategoriaID, CategoriaNombre;
 
 # 5. Para cada cliente, indicar la última factura de compra. Incluir a los clientes que nunca hayan comprado en e-market.
@@ -89,29 +91,78 @@ ORDER BY Cantidad DESC;
 
 # 1. Crear una vista con los siguientes datos de los clientes: ID, contacto, y el Fax. En caso de que no tenga Fax, colocar el teléfono, pero aclarándolo. Por ejemplo: “TEL: (01) 123-4567”.
 
+CREATE VIEW cliente_contactos AS
+SELECT ClienteID, contacto, Fax, Telefono,
+CASE
+	WHEN Fax = '' THEN CONCAT("Tel: ", Telefono)
+	ELSE Fax
+END AS faxTel
+FROM Clientes c;
 
+DROP VIEW cliente_contactos;
+ 
+SELECT * FROM cliente_contactos;
 
 # 2. Se necesita listar los números de teléfono de los clientes que no tengan fax. Hacerlo de dos formas distintas:
 # a. Consultando la tabla de clientes.
-# b. Consultando la vista de clientes.
+
+SELECT ClienteID, Contacto, Telefono
+FROM Clientes
+WHERE Fax is null OR Fax = '';
+
+# b. Consultando la vista de clientes. --------------------------------------------------------------------
+
+SELECT ClienteID, contacto, Telefono FROM cliente_contactos
+WHERE Fax is null OR Fax = '';
 
 # Proveedores
 
 # 1. Crear una vista con los siguientes datos de los proveedores: ID, contacto, compañía y dirección. Para la dirección tomar la dirección, ciudad, código postal y país.
 
+CREATE VIEW datos_proveedores AS
+SELECT ProveedorID, Contacto, Compania, concat(Direccion , ' · ', Ciudad, ' · ' , CodigoPostal, ' · ', Pais ) as Direccion
+FROM Proveedores; 
+
+SELECT * FROM datos_proveedores;
+
 # 2. Listar los proveedores que vivan en la calle Americanas en Brasil. Hacerlo de dos formas distintas:
 # a. Consultando la tabla de proveedores.
+
+SELECT * FROM Proveedores
+WHERE Direccion LIKE '%americanas%';
+
 # b. Consultando la vista de proveedores.
+
+SELECT * FROM datos_proveedores
+WHERE Direccion LIKE '%americanas%';
 
 # Vistas - Parte II
 
 # 1. Crear una vista de productos que se usará para control de stock. Incluir el ID y nombre del producto, el precio unitario redondeado sin decimales, las unidades en stock y las unidades pedidas. Incluir además una nueva columna PRIORIDAD con los siguientes valores:
+
 # ■ BAJA: si las unidades pedidas son cero.
 # ■ MEDIA: si las unidades pedidas son menores que las unidades en stock.
 # ■ URGENTE: si las unidades pedidas no duplican el número de unidades.
 # ■ SUPER URGENTE: si las unidades pedidas duplican el número de unidades en caso contrario.
 
+CREATE VIEW control_Stock AS
+SELECT ProductoID, ProductoNombre, round(PrecioUnitario) as PxUnitario, UnidadesStock, UnidadesPedidas, 
+CASE
+	WHEN UnidadesPedidas = 0 THEN 'BAJA'
+    WHEN UnidadesPedidas < UnidadesStock THEN 'MEDIA'
+    WHEN UnidadesPedidas < (UnidadesStock * 2) THEN 'URGENTE'
+    WHEN UnidadesPedidas > (UnidadesStock * 2) THEN 'SUPER URGENTE'
+END AS Prioridad
+FROM Productos; 
+
+
 # 2. Se necesita un reporte de productos para identificar problemas de stock. Para cada prioridad indicar cuántos productos hay y su precio promedio. No incluir las prioridades para las que haya menos de 5 productos.
+
+SELECT Prioridad, COUNT(ProductoNombre) as CantPdtos, ROUND(AVG(PxUnitario), 2) as PromedioPU
+FROM control_Stock
+GROUP BY Prioridad
+HAVING CantPdtos >= 5; 
+
 
 #######################################################################################
 #######################################################################################
@@ -125,6 +176,7 @@ ORDER BY Cantidad DESC;
 # b) Invocar la vista creada.
 
 # 2. a) Crear una vista que devuelva un resumen con el apellido y nombre (en una sola columna denominada “artista”) de los artistas y la cantidad de filmaciones que tienen. Traer solo aquellos que tengan más de 25 filmaciones y ordenarlos por apellido.
+
 # b) Invocar la vista creada.
 
 # c) En la misma invocación de la vista, traer aquellos artistas que tienen menos de 33 filmaciones.
@@ -136,19 +188,3 @@ ORDER BY Cantidad DESC;
 # c) En la misma invocación de la vista, traer aquellas películas que comienzan con la letra "b".
 # d) Modificar la vista creada agregando una condición que traiga los artistas cuyo nombre termine con la letra "a" y ordenarlos por mayor costo de reemplazo
 # e) Invocar la vista creada.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
