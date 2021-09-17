@@ -188,3 +188,40 @@ HAVING CantPdtos >= 5;
 # c) En la misma invocación de la vista, traer aquellas películas que comienzan con la letra "b".
 # d) Modificar la vista creada agregando una condición que traiga los artistas cuyo nombre termine con la letra "a" y ordenarlos por mayor costo de reemplazo
 # e) Invocar la vista creada.
+
+
+###########################################################################
+#C18S
+
+# Ejercicio 1
+
+# 1. Crear una vista para poder organizar los envíos de las facturas. Indicar número de factura, fecha de la factura y fecha de envío, ambas en formato dd/mm/yyyy, valor del transporte formateado con dos decimales, y la información del domicilio del destino incluyendo dirección, ciudad, código postal y país, en una columna llamada Destino.
+SET lc_time_names = 'es_ES';
+
+Select * FROM Facturas;
+
+CREATE VIEW v_facturas as
+SELECT FacturaID, date_format(FechaFactura, '%d/%m/%Y') as FechaFact, date_format(FechaEnvio, '%d/%m/%Y') as FechaEnv, EnvioVia, ROUND(Transporte, 2) as ValorTransporte, concat(DireccionEnvio, ', ', CiudadEnvio, ', ', CodigoPostalEnvio, ', ', PaisEnvio) as Destino
+FROM Facturas; 
+
+# 2. Realizar una consulta con todos los correos y el detalle de las facturas que usaron ese correo. Utilizar la vista creada.
+
+SELECT v_facturas.FacturaID, c.Compania, c.Telefono, fd.ProductoID, fd.PrecioUnitario, fd.PrecioUnitario
+FROM v_facturas
+INNER JOIN Correos c ON v_facturas.EnvioVia = c.CorreoID
+INNER JOIN FacturaDetalle fd ON v_facturas.FacturaID = fd.FacturaID;
+
+
+# 3. ¿Qué dificultad o problema encontrás en esta consigna? Proponer alguna alternativa o solución.
+# La dificultad es que no se puede acceder a los datos de una columna que no fue incorporada en la creación de la vista.
+#Una alternativa es eliminar la vista y crearla nuevamente agregando el campo EnvioVia y luego al invocar la vista, se puede realizar join con la tabla Correos y FacturaDetalle. 
+
+
+# Ejercicio 2
+
+# 1. Crear una vista con un detalle de los productos en stock. Indicar id, nombre del producto, nombre de la categoría y precio unitario.
+
+
+
+# 2. Escribir una consulta que liste el nombre y la categoría de todos los productos vendidos. Utilizar la vista creada.
+# 3. ¿Qué dificultad o problema encontrás en esta consigna? Proponer alguna alternativa o solución.
