@@ -222,8 +222,8 @@ INNER JOIN FacturaDetalle fd ON v_facturas.FacturaID = fd.FacturaID;
 
 
 # 3. ¿Qué dificultad o problema encontrás en esta consigna? Proponer alguna alternativa o solución.
-# La dificultad es que no se puede acceder a los datos de una columna que no fue incorporada en la creación de la vista.
-#Una alternativa es eliminar la vista y crearla nuevamente agregando el campo EnvioVia y luego al invocar la vista, se puede realizar join con la tabla Correos y FacturaDetalle. 
+-- La dificultad es que no se puede acceder a los datos de una columna que no fue incorporada en la creación de la vista.
+-- Una alternativa es eliminar la vista y crearla nuevamente agregando el campo EnvioVia y luego al invocar la vista, se puede realizar join con la tabla Correos y FacturaDetalle. 
 
 
 # Ejercicio 2
