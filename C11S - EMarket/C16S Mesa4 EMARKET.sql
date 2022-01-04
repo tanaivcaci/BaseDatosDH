@@ -1,4 +1,5 @@
-# Reportes parte I - Repasamos INNER JOIN
+/*# Reportes parte I - Repasamos INNER JOIN
+
 # Realizar una consulta de la facturación de e-market. Incluir la siguiente información:
 # ● Id de la factura # ● fecha de la factura # ● nombre de la empresa de correo
 # ● nombre del cliente # ● categoría del producto vendido # ● nombre del producto
@@ -81,11 +82,13 @@ RIGHT JOIN Correos co
 ON	fa.EnvioVia = co.CorreoID
 GROUP BY EnvioVia, Compania
 ORDER BY Cantidad DESC;
+*/
 
+#####################################################################
 
 #C17A - DML - Queries XXL Parte II - VISTAS
 
-# Vistas - Parte I
+/*# Vistas - Parte I
 
 # Clientes
 
@@ -138,8 +141,9 @@ WHERE Direccion LIKE '%americanas%';
 
 SELECT * FROM datos_proveedores
 WHERE Direccion LIKE '%americanas%';
+*/
 
-# Vistas - Parte II
+/*# Vistas - Parte II
 
 # 1. Crear una vista de productos que se usará para control de stock. Incluir el ID y nombre del producto, el precio unitario redondeado sin decimales, las unidades en stock y las unidades pedidas. Incluir además una nueva columna PRIORIDAD con los siguientes valores:
 
@@ -166,40 +170,10 @@ FROM control_Stock
 GROUP BY Prioridad
 HAVING CantPdtos >= 5; 
 
+*/
 
 #####################################################################
-#####################################################################
-#####################################################################
-# C17S - DML - Queries XXL - Parte II
 
-# Consultas
-# Views:
-
-# 1. a) Crear una vista denominada “vista_mostrar_pais” que devuelva un reporte de los países.
-# b) Invocar la vista creada.
-
-# 2. a) Crear una vista que devuelva un resumen con el apellido y nombre (en una sola columna denominada “artista”) de los artistas y la cantidad de filmaciones que tienen. Traer solo aquellos que tengan más de 25 filmaciones y ordenarlos por apellido.
-
-# b) Invocar la vista creada.
-
-# c) En la misma invocación de la vista, traer aquellos artistas que tienen menos de 33 filmaciones.
-
-# d) Con la misma sentencia anterior, ahora, mostrar el apellido y nombre de los artistas en minúsculas y traer solo aquellos artistas cuyo apellido comience con la letra "a".
-
-# e) Eliminar la vista creada.
-
-# 3. a) Crear una vista que devuelva un reporte del título de la película, el apellido y nombre (en una sola columna denominada “artista”) de los artistas y el costo de reemplazo. Traer solo aquellas películas donde su costo de reemplazo es entre 15 y 27 dólares, ordenarlos por costo de reemplazo.
-
-# b) Invocar la vista creada.
-
-# c) En la misma invocación de la vista, traer aquellas películas que comienzan con la letra "b".
-
-# d) Modificar la vista creada agregando una condición que traiga los artistas cuyo nombre termine con la letra "a" y ordenarlos por mayor costo de reemplazo
-
-# e) Invocar la vista creada.
-
-
-###########################################################################
 #C18S
 
 # Ejercicio 1
@@ -230,10 +204,35 @@ INNER JOIN FacturaDetalle fd ON v_facturas.FacturaID = fd.FacturaID;
 
 # 1. Crear una vista con un detalle de los productos en stock. Indicar id, nombre del producto, nombre de la categoría y precio unitario.
 
+#CREATE VIEW detalle_productos_stock as
+SELECT ProductoId, ProductoNombre, categoriaNombre, PrecioUnitario 
+FROM Productos
+INNER JOIN Categorias ON Productos.CategoriaID = Categorias.CategoriaID
+WHERE UnidadesStock > 0; 
 
+
+SELECT CategoriaNombre, ProductoId, ProductoNombre, PrecioUnitario
+FROM Categorias
+LEFT JOIN Productos
+ON Categorias.CategoriaID = Productos.CategoriaID
+WHERE UnidadesStock > 0;
 
 # 2. Escribir una consulta que liste el nombre y la categoría de todos los productos vendidos. Utilizar la vista creada.
+SELECT * FROM detalle_productos_stock;
+
+SELECT  DISTINCT CategoriaNombre, ProductoNombre  FROM detalle_productos_stock;
+
+#Profe
+SELECT DISTINCT p.*														# p como alias de la vista detalle_productos_stock
+FROM FacturaDetalle f													# Unimos la Tabla FacturaDetalle
+LEFT JOIN detalle_productos_stock p ON f.ProductoID = p.ProductoID;		# left join vista 
+
+SELECT DISTINCT p.*														# p como alias de la vista detalle_productos_stock
+FROM detalle_productos_stock p											# Tabla FacturaDetalle
+RIGHT JOIN FacturaDetalle f ON f.ProductoID = p.ProductoID;				# right join vista 
 
 
 
 # 3. ¿Qué dificultad o problema encontrás en esta consigna? Proponer alguna alternativa o solución.
+-- sólo se pueden visualizar los productos que están en stock. Una opción es no usar la vista sino las tablas, otra opción es crear una vista 
+-- diferente que no considere el stock. 

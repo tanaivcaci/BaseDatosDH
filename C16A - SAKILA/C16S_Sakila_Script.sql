@@ -1,4 +1,4 @@
-# C16A - SAKILA
+/* # C16A - SAKILA
 
 # Reportes
 # Reportes parte 1:
@@ -98,12 +98,11 @@ order by cantidad desc, inventory_id
 limit 5;
 
 
-
-#################################################################################
-#################################################################################
+*/
 #################################################################################
 
-# C17A Desafío Extra - SAKILA
+
+/*# C17A Desafío Extra - SAKILA
 
 # Consultas
 # Views:
@@ -155,14 +154,96 @@ DROP VIEW artistas_resumen;
 
 # 3. a) Crear una vista que devuelva un reporte del título de la película, el apellido y nombre (en una sola columna denominada “artista”) de los artistas y el costo de reemplazo. Traer solo aquellas películas donde su costo de reemplazo es entre 15 y 27 dólares, ordenarlos por costo de reemplazo.
 
+CREATE VIEW peliculas_reemplazo as
+SELECT title, CONCAT(last_name, " " , first_name) as artista, replacement_cost
+FROM film 
+INNER JOIN film_actor ON film.film_id = film_actor.film_id
+INNER JOIN actor ON film_actor.actor_id = actor.actor_id
+WHERE film.replacement_cost BETWEEN 15 AND 27
+ORDER BY replacement_cost; 
 
 # b) Invocar la vista creada.
-
+SELECT * FROM peliculas_reemplazo; 
 
 # c) En la misma invocación de la vista, traer aquellas películas que comienzan con la letra "b".
+SELECT * FROM peliculas_reemplazo
+WHERE title LIKE 'b%'; 
 
 
 # d) Modificar la vista creada agregando una condición que traiga los artistas cuyo nombre termine con la letra "a" y ordenarlos por mayor costo de reemplazo.
 
+ALTER VIEW peliculas_reemplazo as
+SELECT title, CONCAT(last_name, " " , first_name) as artista, replacement_cost
+FROM film 
+INNER JOIN film_actor ON film.film_id = film_actor.film_id
+INNER JOIN actor ON film_actor.actor_id = actor.actor_id
+WHERE film.replacement_cost BETWEEN 15 AND 27
+	AND first_name LIKE '%a'	
+ORDER BY replacement_cost DESC; 
+
 
 # e) Invocar la vista creada.
+SELECT * FROM peliculas_reemplazo; 
+
+*/
+
+#################################################################################
+-- C20 - BUENAS PRÁCTICAS - VALIDEMOS LO APRENDIDO
+
+/*#clase sincrónica
+
+SELECT * FROM actor; 
+SELECT COUNT(*) FROM actor;
+
+SELECT count(*), SUM(amount)
+FROM payment
+WHERE customer_id = 10; 
+
+SELECT COUNT(customer_id)
+FROM customer
+WHERE active = 0;
+
+
+SELECT * 
+FROM sakila.film
+JOIN film_category ON film.film_id = film_category.film_id
+JOIN category ON film_category.category_id = category.category_id WHERE category.name = "Action";
+*/
+
+#  C20 - Volver al Futuro II: Sakila
+USE sakila;
+
+# Parte I
+# 1. Generar un reporte que responda la pregunta: ¿cuáles son los diez clientes que más dinero gastan y en cuantos alquileres lo hacen?
+
+SELECT c.customer_id, c.first_name, c.last_name, SUM(p.amount), COUNT(r.customer_id)
+FROM customer c
+LEFT JOIN payment p ON c.customer_id = p.customer_id
+LEFT JOIN rental r ON r.customer_id = c.customer_id
+GROUP BY c.customer_id
+ORDER BY SUM(p.amount) DESC
+LIMIT 10; 
+
+SELECT COUNT(*) FROM rental
+WHERE customer_id = 148; 
+
+# 2. Generar un reporte que indique: el id del cliente, la cantidad de alquileres y el monto total para todos los clientes que hayan gastado más de 150 dólares en alquileres.
+
+SELECT c.customer_id, COUNT(r.rental_id), SUM(p.amount)
+FROM customer c
+INNER JOIN rental r ON c.customer_id = r.customer_id
+INNER JOIN payment p ON r.rental_id = p.rental_id
+GROUP BY c.customer_id
+HAVING SUM(p.amount)> 150; 
+
+# 3. Generar un reporte que responda a la pregunta: ¿cómo se distribuyen la cantidad y el monto total de alquileres en los meses  pertenecientes al año 2005? (tabla payment).
+
+
+
+# 4. Generar un reporte que responda a la pregunta: ¿cuáles son los 5 inventarios más alquilados? (columna inventory_id en la tabla rental) Para cada una de ellas, indicar la cantidad de alquileres.
+
+# Parte II
+# 1. Generar un reporte que responda a la pregunta: Para cada tienda (store), ¿cuál es la cantidad de alquileres y el monto total del dinero recaudado por mes?
+# 2. Generar un reporte que responda a la pregunta: ¿cuáles son las 10 películas que generan más ingresos? ¿ Y cuáles son las que generan menos ingresos? Para cada una de ellas indicar la cantidad de alquileres.
+# 3. ¿Existen clientes que no hayan alquilado películas?
+# 4. Nivel avanzado: El jefe de stock quiere discontinuar las películas (film) con menos alquileres (rental). ¿Qué películas serían candidatas a discontinuar? Recordemos que pueden haber películas con 0 (Cero) alquileres.

@@ -40,7 +40,7 @@ y nombre (en una sola columna denominada “artista”) de los artistas y el
 costo de reemplazo. Traer solo aquellas películas donde su costo de
 reemplazo es entre 15 y 27 dólares, ordenarlos por costo de reemplazo. */
 
-create view peliculas_reemplazo as
+#create view peliculas_reemplazo as
 select film.title as pelicula, concat(actor.first_name, " ", actor.last_name) as artista, film.replacement_cost as "costo de reemplazo" from actor
 inner join film_actor
 on actor.actor_id = film_actor.actor_id
