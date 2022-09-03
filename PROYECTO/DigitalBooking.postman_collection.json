@@ -1,0 +1,631 @@
+{
+	"info": {
+		"_postman_id": "65979a7b-522f-401c-8a66-609e876d6b5e",
+		"name": "DigitalBooking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "getListCategories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/categories",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getListCategories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/categories",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 May 2022 20:21:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"13d1c613-29df-43f3-8256-e378dee03220\",\n        \"title\": \"Hotel\",\n        \"description\": \"5 stars\",\n        \"image\": \"https://unsplash.com/es/fotos/g5ZIXjzRGds\"\n    },\n    {\n        \"id\": \"40e62455-556c-44fb-9a4a-fdd164a3997c\",\n        \"title\": \"Apart\",\n        \"description\": \"Beatiful\",\n        \"image\": \"https://unsplash.com/es/fotos/g5ZIXjzRGds\"\n    },\n    {\n        \"id\": \"e789f3da-4525-4d2a-8457-b5968acf6129\",\n        \"title\": \"Casa\",\n        \"description\": \"Beatiful\",\n        \"image\": \"https://unsplash.com/es/fotos/g5ZIXjzRGds\"\n    }\n]"
+						},
+						{
+							"name": "getListCategories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/categories",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 May 2022 20:24:17 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"13d1c613-29df-43f3-8256-e378dee03220\",\n        \"title\": \"Hotel\",\n        \"description\": \"5 Stars\",\n        \"image\": \"https://unsplash.com/es/fotos/g5ZIXjzRGds\"\n    },\n    {\n        \"id\": \"40e62455-556c-44fb-9a4a-fdd164a3997c\",\n        \"title\": \"Apart\",\n        \"description\": \"Beatiful\",\n        \"image\": \"https://unsplash.com/es/fotos/g5ZIXjzRGds\"\n    },\n    {\n        \"id\": \"e65d1037-3e55-42fe-b474-490ffa7c1bde\",\n        \"title\": \"Casa\",\n        \"description\": \"Beatiful\",\n        \"image\": \"https://unsplash.com/es/fotos/g5ZIXjzRGds\"\n    },\n    {\n        \"id\": \"e789f3da-4525-4d2a-8457-b5968acf6129\",\n        \"title\": \"Casa\",\n        \"description\": \"Beatiful\",\n        \"image\": \"https://unsplash.com/es/fotos/g5ZIXjzRGds\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "getCategoryById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Apart\",\n    \"description\": \"Beatiful\",\n    \"image\": \"https://unsplash.com/es/fotos/g5ZIXjzRGds\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/categories/24d8dd04-2dcd-4207-9b54-7110d1fb8763",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categories",
+								"24d8dd04-2dcd-4207-9b54-7110d1fb8763"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getCategoryById",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/categories/13d1c613-29df-43f3-8256-e378dee03220",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"categories",
+										"13d1c613-29df-43f3-8256-e378dee03220"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 May 2022 20:23:40 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"13d1c613-29df-43f3-8256-e378dee03220\",\n    \"title\": \"Hotel\",\n    \"description\": \"5 stars\",\n    \"image\": \"https://unsplash.com/es/fotos/g5ZIXjzRGds\"\n}"
+						}
+					]
+				},
+				{
+					"name": "createCategory",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Apart\",\n    \"description\": \"Beatiful\",\n    \"image\": \"https://unsplash.com/es/fotos/g5ZIXjzRGds\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/categories",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createCategory",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Casa\",\n    \"description\": \"Beatiful\",\n    \"image\": \"https://unsplash.com/es/fotos/g5ZIXjzRGds\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/categories",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Location",
+									"value": "http://localhost:8080/categories/e65d1037-3e55-42fe-b474-490ffa7c1bde"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 May 2022 20:23:52 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "updateCategory",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"24d8dd04-2dcd-4207-9b54-7110d1fb8763\",\n    \"title\": \"Apart\",\n    \"description\": \"Nice\",\n    \"image\": \"https://unsplash.com/es/fotos/g5ZIXjzRGds\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/categories",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "updateCategory",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"id\": \"13d1c613-29df-43f3-8256-e378dee03220\",\n        \"title\": \"Hotel\",\n        \"description\": \"5 Stars\",\n        \"image\": \"https://unsplash.com/es/fotos/g5ZIXjzRGds\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/categories",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 May 2022 20:24:05 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "deleteCategory",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/categories/24d8dd04-2dcd-4207-9b54-7110d1fb8763",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categories",
+								"24d8dd04-2dcd-4207-9b54-7110d1fb8763"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deleteCategory",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/categories/e789f3da-4525-4d2a-8457-b5968acf6129",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"categories",
+										"e789f3da-4525-4d2a-8457-b5968acf6129"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 May 2022 20:24:41 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "5f62f376-0382-436b-ad18-593c1a6f6f29",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "user",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

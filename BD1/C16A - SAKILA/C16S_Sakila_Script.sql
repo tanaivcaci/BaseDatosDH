@@ -212,7 +212,7 @@ JOIN category ON film_category.category_id = category.category_id WHERE category
 
 #  C20 - Volver al Futuro II: Sakila
 USE sakila;
-
+SELECT customer_id, amount FROM payment ORDER BY amount DESC LIMIT 1;
 # Parte I
 # 1. Generar un reporte que responda la pregunta: ¿cuáles son los diez clientes que más dinero gastan y en cuantos alquileres lo hacen?
 
@@ -244,6 +244,9 @@ HAVING SUM(p.amount)> 150;
 
 # Parte II
 # 1. Generar un reporte que responda a la pregunta: Para cada tienda (store), ¿cuál es la cantidad de alquileres y el monto total del dinero recaudado por mes?
+
 # 2. Generar un reporte que responda a la pregunta: ¿cuáles son las 10 películas que generan más ingresos? ¿ Y cuáles son las que generan menos ingresos? Para cada una de ellas indicar la cantidad de alquileres.
+
 # 3. ¿Existen clientes que no hayan alquilado películas?
+
 # 4. Nivel avanzado: El jefe de stock quiere discontinuar las películas (film) con menos alquileres (rental). ¿Qué películas serían candidatas a discontinuar? Recordemos que pueden haber películas con 0 (Cero) alquileres.

@@ -1,0 +1,23 @@
+DELIMITER $$
+CREATE PROCEDURE sp() -- Agregar parametros necesarios
+BEGIN 
+    DECLARE variablesDelCursor VARCHAR(20); -- Declarar todas las variables que me devuelve el SELECT del cursor
+    DECLARE finished INT DEFAULT 0; -- Variable para salir del LOOP
+    DECLARE cur1 CURSOR FOR SELECT 'Terminar el SELECT'; -- Declaramos el cursor
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET finished = 1; -- Manejor de errores para cuando no haya mas registros
+
+    OPEN cur1;
+
+    recorre: LOOP
+        FETCH cur1 INTO variablesDelCursor; -- Traemos el proximo regitro del SELECT del cursor y guardamos las variables de ese mismo registro
+        
+        IF finished = 1 THEN -- Condicion de salida del bucle
+            LEAVE recorre;
+        END IF;
+
+        -- Logica del SP
+
+    END LOOP;
+    CLOSE cur1;
+END;
+$$

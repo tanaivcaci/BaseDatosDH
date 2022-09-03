@@ -1,0 +1,291 @@
+Title,Description,Issue ID,URL,State,Author,Author Username,Assignee,Assignee Username,Confidential,Locked,Due Date,Created At (UTC),Updated At (UTC),Closed At (UTC),Milestone,Weight,Labels,Time Estimate,Time Spent
+Implementar template general responsive,"**Header**
+- Crear un header al 100% de la pantalla y de posición fija al tope de la página que, se verá en todas las pantallas de la aplicación, siguiendo el modelo de referencia.
+- Dentro del header armar un bloque alineado a la izquierda que incluya el logotipo y el lema de la empresa. Ambos deben ser clickeables por las personas usuarias y dirigir a la Home del sitio.
+- Dentro del header armar un bloque alineado a la derecha que contenga (según el caso) un botón de inicio de sesión y/o un botón de registro en el caso de que el usuario no esté logueado y de caso contrario mostrar el nombre de usuario, un avatar de letras con las iniciales del nombre de usuario y un link de cierre de sesión.
+
+**Body**
+- Representar un body general con el color de background elegido que ocupe el 100% del alto de la pantalla.
+
+**Footer**
+- Crear un footer al 100% del ancho de la pantalla y al pie de la misma que, se verá en todas las pantallas de la aplicación, siguiendo el modelo de referencia.
+- Dentro del footer armar un bloque alineado a la izquierda que incluya el isologotipo el año y el copyright.
+- Dentro del footer armar un bloque alineado a la derecha que incluya íconos de redes sociales. Los íconos no necesitan ser vinculados a ninguna página.",1,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/1,Closed,Maria Laura Padin,LauPO,"","",No,No,,2022-05-17 22:26:40,2022-05-25 20:12:46,2022-05-25 20:12:46,Sprint 1,,"Front end,Obligatoria",0,0
+Crear la tabla de Categorías,"Crear una tabla llamada “categorías” en la base de datos.
+
+Esta tabla deberá contener los siguientes atributos (mínimo):
+- Id
+- Título
+- Descripción
+- Url imagen
+
+
+Para obtener imágenes gratuitas y sus URL puede usarse: https://unsplash.com/",2,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/2,Closed,Maria Laura Padin,LauPO,"","",No,No,,2022-05-17 22:26:40,2022-05-25 20:12:49,2022-05-25 20:12:49,Sprint 1,,"Back end,Bases de datos,Obligatoria",0,0
+CRUD Categorias,"Conectarnos a la base de datos para realizar las operaciones CRUD.
+
+Mapear los atributos de la tabla “categorías” con una clase de nuestro modelo, los atributos serán los mismos que tiene la tabla. Para poder realizar las operaciones CRUD con la base de datos debemos utilizar **Spring Data JPA**",3,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/3,Closed,Maria Laura Padin,LauPO,"","",No,No,,2022-05-17 22:26:41,2022-05-25 20:13:10,2022-05-25 20:13:10,Sprint 1,,"Back end,Bases de datos,Obligatoria",0,0
+Crear API,"Crear el proyecto en java para implementar la API que contendrá los Endpoints del sistema. Estructurando el proyecto con los paquetes **model, repository, service y controller** (mínimo).",4,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/4,Closed,Maria Laura Padin,LauPO,"","",No,No,,2022-05-17 22:26:41,2022-05-25 20:12:50,2022-05-25 20:12:50,Sprint 1,,"Back end,Bases de datos,Obligatoria",0,0
+API: Agregar endpoint de categorías,"Desarrollar el Endpoint de categorías para ser consumida por el Front end.
+ 
+El controller deberá tener los métodos necesarios para:
+- Agregar una categoría nueva.
+- Listar todas las categorías.
+- Editar una categoría en particular (**OPCIONAL**)
+- Eliminar una categoría (**OPCIONAL**)",5,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/5,Closed,Maria Laura Padin,LauPO,"","",No,No,,2022-05-17 22:26:41,2022-05-25 20:13:25,2022-05-25 20:13:25,Sprint 1,,"Back end,Bases de datos,Obligatoria",0,0
+Implementación template bloque buscador,"Crear un bloque que incluya un heading `<h1 />` cómo título, un parágrafo` <p />`.
+
+Crear un formulario que incluya:
+- Lista desplegable (Select): Ciudad
+- Fecha de inicio y fin: Calendario doble 
+- Botón para buscar
+ 
+Por el momento la lista de ciudades debe ser obtenida de un Json estático.",6,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/6,Closed,Maria Laura Padin,LauPO,"","",No,No,,2022-05-17 22:26:41,2022-05-27 20:50:30,2022-05-27 20:50:30,Sprint 1,,"Front end,Obligatoria",0,0
+Implementar el template del bloque Listado,"**Estructura:**
+
+**Card:**
+- Crear una card en la que se representará cada producto.
+- Dentro de la card incluir un bloque alineado a la izquierda que incluya una imagen centrada.
+- Dentro de la card incluir un bloque alineado a la derecha que incluya la categoría del producto, el nombre, ubicación, la descripción. Y un botón que diga ""Ver detalle"".
+ 
+**Datos para el Listado:**
+
+Crear un json estático con un array que contenga al menos 8 elementos. Estos serán objetos con los siguientes atributos:
+- img: (string) que contenga una dirección a una imagen de banco de fotos.
+- category: (string) con solo una de las 4 categorías que brindará el backend. Cada categoría debe ser - incluída al menos en 2 productos del Json.
+- title: (string) Título del producto a elegir.
+- location: (string) Ciudad.
+- description: (string) Ver catipsum.com.
+ 
+**Lista:**
+- Crear una función map que permita iterar el Json y representar las 8 cards. Una por cada objeto del Json.
+- Retornar la función en un bloque debajo del bloque de categorías.",7,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/7,Closed,Maria Laura Padin,LauPO,"","",No,No,,2022-05-17 22:26:42,2022-05-25 20:13:13,2022-05-25 20:13:13,Sprint 1,,"Front end,Obligatoria",0,0
+Implementar el template del bloque Categorías,"**Categorías**: Crear un bloque que incluya un heading `<h2 />` cómo título, un parágrafo` <p />` y debajo 4 imágenes con sus correspondientes captions. Deben respetarse los efectos visuales tales como bordes, sombras, etc.
+
+Las 4 categorías deben ser obtenidas de un Json estático
+
+Este bloque debe mostrar siempre 4 y solo 4 categorías
+
+(**OPCIONAL**) En vez de utilizar el Json, obtener las 4 categorías desde la API, endpoint de Categorias",8,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/8,Closed,Maria Laura Padin,LauPO,"","",No,No,,2022-05-17 22:26:42,2022-05-25 20:13:29,2022-05-25 20:13:29,Sprint 1,,"Front end,Obligatoria",0,0
+Implementar el template de Login y registro,"
+ 
+**Bloque general**: Crear un bloque que se muestre a pantalla completa sin scroll, dejando visible en la parte superior de la pantalla sólo el header y el bloque de búsqueda. Que pueda contener en su centro un formulario.
+
+Además debe incluir en su extremo superior derecho un ícono para cerrar el bloque.
+
+**Login**: Crear un formulario de inicio de sesión que contenga los siguientes inputs y labels:
+- Correo electrónico (de type=”email”)
+- Contraseña (de type=”Password”)
+- Además debe tener un botón que debe decir ingresar.
+- Debajo del botón debe haber un texto que redireccione al registro.
+ 
+**Registro**: Crear un formulario de registro que contenga los siguientes inputs:
+- Nombre (de type=”text”)
+- Apellido (de type=”text”)
+- Correo electrónico (de type=”email”)
+- Contraseña (de type=”password”)
+- Confirmar contraseña (de type=”password”)
+- Además debe tener un botón que debe decir Crear Cuenta. Debajo del botón debe haber un texto que redireccione al login.",9,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/9,Closed,Maria Laura Padin,LauPO,"","",No,No,,2022-05-17 22:26:42,2022-05-25 20:12:06,2022-05-25 20:12:06,Sprint 1,,"Front end,Obligatoria",0,0
+Evento de login de usuário,"
+**Validaciones en inputs**: El formulario debe validar que:
+- El campo de email sea un email válido 
+- Que la contraseña tenga más de 6 caracteres.
+- Que las contraseñas coincidan
+ 
+**Botón Crear Cuenta**: Al dar click que funcione la validación. Para esto almacenar un correo electrónico y contraseña de prueba en un objeto y comparar con estos datos los datos ingresados.
+ 
+**Credenciales inválidas**: Si falla la validación el formulario debe indicar  “Por favor vuelva a intentarlo, sus credenciales son inválidas”.
+ 
+**Credenciales válidas**: Se simulará que el usuario está logueado. Desaparecerá el formulario de login volveremos a la Home inicial pero en el header a la derecha, en vez de ver los botones de inicio de sesión y registro veremos: Hola [nombre_de_usuario], un link de cerrar sesión y un avatar circular con las iniciales del usuario.",10,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/10,Closed,Maria Laura Padin,LauPO,"","",No,No,,2022-05-17 22:26:43,2022-05-25 20:12:11,2022-05-25 20:12:11,Sprint 1,,"Front end,Obligatoria",0,0
+Implementar Evento de Header,"**Click Botón Iniciar Sesión**: Deberá mostrarse el header, el buscador y el bloque de login en la pantalla.
+
+**Click Botón Crear Cuenta**: Deberá mostrarse el header, el buscador y el bloque de registro en la pantalla.
+
+**Click al botón de cerrar bloque de registro/login**: Deberá cerrarse el bloque",11,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/11,Closed,Maria Laura Padin,LauPO,"","",No,No,,2022-05-17 22:26:43,2022-05-27 20:50:18,2022-05-27 20:50:18,Sprint 1,,"Front end,Obligatoria",0,0
+Planificación y ejecución de los tests,"Planear casos de test basados en las historias de usuarios que existen en el sprint, y luego ejecutarlos.
+
+Realizar también una prueba exploratoria sobre lo que se desarrolló durante el Sprint.",12,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/12,Closed,Maria Laura Padin,LauPO,"","",No,No,,2022-05-17 22:26:43,2022-05-26 18:55:20,2022-05-26 18:55:20,Sprint 1,,"Obligatoria,Testing / QA",0,0
+Testear la API,"Validar el funcionamiento de la API Rest creada por el Back End durante el Sprint. 
+
+Utilicen Postman para las pruebas y creen los scripts de prueba necesarios.",13,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/13,Closed,Maria Laura Padin,LauPO,"","",No,No,,2022-05-17 22:26:44,2022-05-26 17:10:48,2022-05-26 17:10:48,Sprint 1,,"Obligatoria,Testing / QA",0,0
+Diseño de la red,"Etiquetas: 
+ 
+Presentar un diseño de la infraestructura necesaria para hacer funcionar el proyecto en AWS.
+
+Mostrar un boceto de la red y sus componentes. Ej: Servidores, almacenamiento, red interna y base de datos.
+
+Pueden ver un ejemplo en esta guía: https://docs.aws.amazon.com/es_es/AmazonRDS/latest/UserGuide/TUT_WebAppWithRDS.html",14,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/14,Closed,Maria Laura Padin,LauPO,"","",No,No,,2022-05-17 22:26:44,2022-05-27 17:46:02,2022-05-27 17:46:02,Sprint 1,,"Infraestructura,Obligatoria",0,0
+Generar enrutador para home y productos,"Generar un enrutador que permita crear
+
+- Una ruta para la home.
+- Rutas de producto asociadas al id de cada producto (producto/[identificador_de_producto]).",15,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/15,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:54,2022-05-29 01:22:44,,Sprint 2,,"Back end,Obligatoria",0,0
+Crear controlador de productos,"El controlador de productos deberá permitirnos:
+- Buscar y retornar producto por id.",16,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/16,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:54,2022-05-29 01:21:19,,Sprint 2,,"Back end,Obligatoria",0,0
+Completar información del frontend de producto con datos de la API,"En la página de detalle de producto utilizar el id de la URL para hacer un llamado a la API (endpoint de producto por Id), con el fin de completar la información de la pantalla con los datos devueltos por la API.",17,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/17,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:54,2022-05-28 04:34:54,,Sprint 2,,"Back end,Front end,Obligatoria",0,0
+Implementar template responsive de producto,"**Contenedor**: Esta página debe tener como contenedor el componente template general creado en la tarea del sprint I (implementación template general responsive). 
+
+**Bloque header:**
+- Debe cubrir el 100 % del ancho de la pantalla.
+- Incluir alineado a la izquierda dentro del área de contenido: 
+  - Categoría del producto
+  - Título del producto
+- Incluir alineado a la derecha dentro del área de contenido:
+  -Flecha volver atrás: Implementar un ícono debajo del header que permita volver a la home.
+
+**Ubicación:**
+Crear un bloque que cubra el 100 % del ancho de la pantalla que incluya dentro del área de contenido:
+Datos de ubicación.
+
+**Bloque descripción:**
+Crear un bloque que cubra el 100 % del contenedor que incluya:
+- Título
+- Texto de descripción del producto.
+
+**Bloque de características del producto:**
+Crear un bloque que cubra el 100 % del contenedor que incluya:
+- Título subrayado.
+- Grilla de 4 columnas para desktop, 2 para tablet y 1 para phone con una enumeración de los atributos del producto junto a su ícono asociado.
+
+
+**Bloque de política del producto:**
+Crear un bloque que cubra el 100 % del contenedor que incluya una grilla de 3 columnas para desktop, 2 para tablet y 1 para phone con:
+- Normas: Título y descripción.
+- Seguridad: Título y descripción.
+- Cancelación: Título y descripción.",18,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/18,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:54,2022-05-29 00:57:55,,Sprint 2,,"Bases de datos,Front end,Obligatoria",0,0
+Agregar bloque de imágenes y galería a template producto,"**Bloque de imágenes**. Se presentará una galería de imágenes en los siguientes formatos dependiendo del dispositivo.
+
+**Bloque imágenes (versión desktop)**
+
+- Debe presentar un bloque al 100 % del ancho del contenedor que incluya 5 imágenes. 
+Las mismas deben estar distribuidas del siguiente modo:
+  - Mitad izquierda del bloque: imagen principal.
+  - Mitad derecha distribuida en una grilla de 2 filas y 2 columnas que incluya 4 imágenes.
+
+- Las imágenes deben presentar bordes redondeados y no deben disparar ningún evento.
+- El bloque debe incluir en su región inferior derecha el texto “Ver Más”, el cual, permitirá acceder a un componente de galería de imágenes para ver todas las imágenes disponibles del producto. La elección de la galería específica a utilizar es libre, lo mismo que su estética (no es necesario seguir al pie de la letra la galería presentada en Figma). 
+- La librería de imágenes debe estar incluida como librería en NPM o Yarn.
+-La librería de imágenes debe incluir un botón que permita cerrar y retornar a la visualización del detalle del producto.
+
+
+**Bloque imágenes (versión tablet y phone)**
+- Debe presentar una galería con auto deslizamiento de imágenes al 100 % del ancho del contenedor que incluye una imagen que irá cambiando a medida que pasen 3 segundos.     
+
+
+- El bloque debe incluir en su región inferior derecha un texto que indique cuál es el número de la foto actual y el total de imágenes (la elección de la galería específica a utilizar es libre).
+
+
+- La librería de imágenes debe estar incluida como librería en NPM o Yarn.",19,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/19,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:55,2022-05-28 04:34:55,,Sprint 2,,"Bases de datos,Front end,Obligatoria",0,0
+Crear tabla “productos” en la base de datos,¿Atributos?,20,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/20,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:55,2022-05-30 22:16:10,,Sprint 2,,"Bases de datos,Obligatoria,Prioridad Alta",0,0
+"Agregar las acciones de crear, listar y buscar por id al controlador de productos",...,21,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/21,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:55,2022-05-29 01:21:19,,Sprint 2,,"Back end,Obligatoria",0,0
+Agregar relación entre categoría y producto,"Utilizar Hibernate o realizarlo desde la base de datos y luego mapearlo en la clase producto.
+
+Un producto pertenece a una categoría.",22,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/22,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:56,2022-05-29 01:05:34,,Sprint 2,,"Back end,Bases de datos,Obligatoria",0,0
+Crear tabla “características” en la base de datos,¿Atributos?,23,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/23,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:56,2022-05-30 22:18:29,,Sprint 2,,"Bases de datos,Obligatoria,Prioridad Alta",0,0
+Agregar relación entre producto y característica,Un producto puede tener varias características,24,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/24,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:56,2022-05-28 04:34:56,,Sprint 2,,"Back end,Bases de datos,Obligatoria",0,0
+"Crear tabla “ciudades""  en la base de datos",¿Atributos?,25,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/25,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:56,2022-05-30 22:20:12,,Sprint 2,,"Bases de datos,Obligatoria,Prioridad Alta",0,0
+"Mapear las tablas “ciudades"" con  clases de nuestro modelo.","",26,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/26,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:57,2022-05-30 21:51:59,,Sprint 2,,"Back end,Bases de datos,Obligatoria",0,0
+Agregar relación entre ciudad y producto,Un producto pertenece a una ciudad.,27,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/27,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:57,2022-05-28 04:34:57,,Sprint 2,,"Back end,Bases de datos,Obligatoria",0,0
+Crear tabla “imágenes” en la base de datos,"Deberá tener como atributos:
+- id
+- título
+- URL",28,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/28,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:57,2022-05-30 22:21:37,,Sprint 2,,"Bases de datos,Obligatoria,Prioridad Alta",0,0
+Mapear la tabla “imágenes” con clases del modelo.,"",29,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/29,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:58,2022-05-28 04:34:58,,Sprint 2,,"Back end,Bases de datos,Obligatoria",0,0
+Agregar relación entre producto e imágenes,Un producto puede tener varias imágenes,30,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/30,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:58,2022-05-28 04:34:58,,Sprint 2,,"Bases de datos,Obligatoria",0,0
+Implementar el consumo  de API en el Front End del home,"El controlador de productos debe permitir: 
+- Listar todos los productos.
+
+Los elementos del listado de productos que se muestran en el home deben ser obtenidos del endpoint de productos de la API.",31,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/31,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:58,2022-05-29 01:27:47,,Sprint 2,,"Back end,Front end,Obligatoria",0,0
+Mostrar productos  aleatorios en el home,"Cuando el usuario no esté identificado, debe ver una lista aleatoria de productos.",32,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/32,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:58,2022-05-28 04:34:58,,Sprint 2,,"Back end,Obligatoria",0,0
+Completar el select de  ciudades con datos de la API,El select de ciudades del buscador debe mostrar las ciudades almacenadas en la base de datos.,33,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/33,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:59,2022-05-28 04:34:59,,Sprint 2,,"Back end,Bases de datos,Obligatoria",0,0
+Implementar filtro por ciudad en controlador,"El controller de productos deberá permitirnos:
+- Listar productos según ciudad.",34,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/34,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:59,2022-05-29 01:25:43,,Sprint 2,,"Back end,Front end,Obligatoria",0,0
+Filtro por ciudad en el buscador,"Al seleccionar una ciudad en el select de ciudades y hacer clic en el botón de búsqueda, la lista de productos debe filtrar los elementos por la ciudad elegida.",35,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/35,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:34:59,2022-05-28 04:34:59,,Sprint 2,,"Back end,Front end,Obligatoria",0,0
+Completar el select de  ciudades con datos de la API,"",36,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/36,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:35:00,2022-05-28 04:35:00,,Sprint 2,,"Bases de datos,Front end,Obligatoria",0,0
+Acceso API para mostrar bloque categorías,Las categorías que se ven en el home deben obtenerse de la base de datos.,37,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/37,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:35:00,2022-05-28 04:35:00,,Sprint 2,,"Back end,Front end,Obligatoria",0,0
+Filtrar por categoría al clickear bloque,"Listar productos según categoría. Al clickear en una categoría, se deben obtener de la base de datos y mostrar los productos de esa categoría.",38,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/38,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:35:00,2022-05-28 04:35:00,,Sprint 2,,"Back end,Obligatoria",0,0
+Incluir calendario de reservas y botón para acceder,"Incluir bloque con calendario doble de fechas disponibles y botón para acceder a la sección de reservas.
+
+**En desktop:**
+
+Debe incluir un calendario alineado a la izquierda y que ocupe ⅔ partes de la grilla de contenido, que muestre 2 meses simultáneamente e indique tanto fechas disponibles como no disponibles.
+
+
+El calendario solo debe permitir navegar entre distintos meses (su única finalidad es la visualización de disponibilidad).
+
+
+Bloque de reserva debe ocupar ⅓ parte de la grilla de contenido:
+- Alinearlo a la derecha del calendario.
+- Debe incluir un texto.
+- Debe incluir un botón de “Iniciar reserva” 
+(sin eventos).
+
+**En tablet:**
+
+Debe incluir un calendario al 100 % del ancho del contenedor que muestre 2 meses simultáneamente que indique tanto fechas disponibles como no disponibles.
+
+
+El calendario solo debe permitir navegar entre distintos meses (su única finalidad es la visualización de disponibilidad).
+
+
+Bloque de reserva con una grilla de 2 columnas:
+- Debe incluir un texto.
+- Debe incluir un botón de “Iniciar reserva” (sin eventos).
+
+
+**En phone:**
+
+Debe incluir un calendario al 100 % del ancho del contenedor que muestre un mes simultáneamente que indique tanto fechas disponibles como no disponibles.
+
+
+El calendario solo debe permitir navegar entre distintos meses (su única finalidad es la visualización de disponibilidad).
+
+
+Bloque de reserva:
+- Debe incluir un texto al 100 % del ancho de la pantalla.
+- Debe incluir un botón de “Iniciar reserva” (sin eventos) al 100 % del ancho de la pantalla.",39,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/39,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:35:00,2022-05-28 04:35:00,,Sprint 2,,"Front end,Obligatoria",0,0
+Crear infraestructura en AWS,"**Crear EC2 en AWS para el servicio web**
+- Crear EC2 para alojar el sitio de reservas.
+- Instalar el servicio web. Por ejemplo, Apache, Nginx, entre otros.
+- Instalar los paquetes necesarios para la aplicación.
+
+
+**Crear RDS en AWS para alojar la base de datos**
+- Crear un RDS con la base de datos para almacenar los datos del sitio de reservas. Por ejemplo: MySQL.
+- Crear tablas y relaciones en la base de datos.
+- Realizar la conexión con EC2.
+
+**Crear S3 Bucket para almacenar las imágenes de los productos**
+- Crear bucket en AWS. 
+- Almacenar las imágenes de los productos y añadir las URLs a la base de datos.",40,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/40,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:35:01,2022-05-28 04:35:01,,Sprint 2,,"Infraestructura,Obligatoria",0,0
+Testeo Automatizado (JEST),"**Creación de pruebas automatizadas**
+
+Utilizando el Framework JEST, crear los scripts de prueba automatizados necesarios para cubrir lo desarrollado durante los sprints I y II. Subir evidencia de la ejecución de los test a la tarea de GitLab (captura de pantalla o archivo JSON).
+
+Crear test unitarios y definir el porcentaje de cobertura que quiere alcanzar el equipo (como mínimo un 40 %).",41,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/41,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:35:01,2022-05-28 04:35:01,,Sprint 2,,"Obligatoria,Testing / QA",0,0
+Testeo Automatizado (Selenium),"Opcional: Crear test funcionales utilizando Selenium Web driver.
+
+Opcional: Crear script automático utilizando Selenium IDE.",42,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/42,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:35:03,2022-05-28 04:35:03,,Sprint 2,,"Electiva,Testing / QA",0,0
+Testeo Automatizado (Postman),"**Creación de pruebas automatizadas**
+
+
+Desarrollar los scripts de pruebas automatizados utilizando Postman para las API desarrolladas en este sprint. Agregar las API desarrolladas en este sprint a la colección generada en el sprint I. Ejecutar los scripts con el test runner de Postman y subir a GitLab el archivo JSON con los resultados de la ejecución (debe contener los scripts de sprint I y II).",43,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/43,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:35:03,2022-05-28 04:35:03,,Sprint 2,,"Obligatoria,Testing / QA",0,0
+Testeo Exploratorio - Manual - Estático,"**Testing exploratorio**
+
+
+- Realizar test exploratorio sobre lo agregado en el sprint. Entregar un documento con notas y forma de la organización del test exploratorio (sesiones, tours, escenarios, workflows, etc.).
+
+
+**Casos de prueba manuales**
+
+- Agregar a la planilla de casos de prueba sobre las funcionalidades del sprint II.
+- Realizar mantenimiento de los casos de prueba manuales generados en el sprint I, en caso de ser necesario.
+- Clasificar los casos de prueba en suite de smoke y regression test.
+- Generar la suite de prueba con los casos que se puedan ejecutar, luego ejecutar esta suite de prueba.
+- Subir a GitLab la planilla de casos de prueba adjunta o el link al archivo.
+
+**Testing estático**
+
+
+Revisar cada una de las historias de usuario del sprint II y reportar defectos en la planilla correspondiente (por ejemplo, falta de definición de algún componente).
+
+Subir a GitLab la planilla de defectos adjunta o el link al archivo.",44,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/44,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:35:04,2022-05-28 04:35:04,,Sprint 2,,"Obligatoria,Testing / QA",0,0
+Crear Pipeline para CI CD,Crear pipeline del proyecto donde se ejecute la integración continúa (CI) del código de frontend y de backend,45,https://gl.deitech.online/ctd/proyecto-integrador-0522/0821-c1/grupo-03/-/issues/45,Open,Santiago Vallazza,santiago.vallazza,"","",No,No,,2022-05-28 04:35:04,2022-05-30 21:53:34,,Sprint 2,,"Infraestructura,Obligatoria",0,0

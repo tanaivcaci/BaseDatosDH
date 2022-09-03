@@ -1,0 +1,127 @@
+POSTMAN
+https://medium.com/@cesiztel/c%C3%B3mo-se-hace-api-testing-con-postman-978a521552f4
+
+********** COLLECCTION *************
+
+//Performance
+pm.test("Response time is less than 200ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(200);
+});
+
+
+
+
+************* FOLDER ***************
+//Status to.be.oneOf
+pm.test("Generic Successful GET request", function () {
+    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202, 204, 404]);
+});
+
+
+//PARA GETS 
+pm.test("Payload must be valid and have a body", function () { 
+	// equivalente a decir que valide que sea 200
+     pm.response.to.be.withBody; // body tiene que exitir
+     pm.response.to.be.json; // además que sea un JSON válido
+});
+
+//Se repite con el de arriba
+pm.test("Content-Type is JSON", function () {
+    pm.response.to.be.json;
+})
+
+
+//OJO CAMBIAR ATRIBUTOS ACORDES A RESPUESTA -- Hacer para producto
+
+//GET ALL CATEGORIES
+pm.test("*****Response body should be in the correct format", function() {
+    pm.expect(jsonResponse).to.be.a('array');
+    pm.expect(jsonResponse[0]).to.be.a('object');
+    pm.expect(jsonResponse[0].id).to.be.a('string');
+    pm.response.to.have.header("Content-Type");
+});
+
+
+//GET CATEGORY BY ID
+pm.test("*****Response body should be in the correct format", function() {
+    pm.expect(jsonResponse).to.be.a('object');
+    pm.expect(jsonResponse.id).to.be.a('string');
+    pm.expect(jsonResponse.title).to.be.a('string');
+    pm.expect(jsonResponse.quantity).to.be.a('string'); //debería ser un número
+    pm.expect(jsonResponse.image).to.be.a('string');
+    pm.response.to.have.header("Content-Type");
+});
+
+
+
+//GETS ALL
+let jsonResponse = pm.response.json();
+//pm.collectionVariables.set("jsonResponse", jsonResponse);
+
+pm.test("-----Response body should be an array", function() {
+    pm.expect(jsonResponse).to.be.an('array');
+});
+
+
+
+//GET, PUT y DELETE
+// Pedimos a nuestro response payload que tengo Content-Type en el header
+pm.test("Content-Type is present", function () {
+    pm.response.to.have.header("Content-Type");
+});
+
+
+
+
+//DELETE (en el test o en FOLDER DELETE)
+pm.test("Body matches string", function () {
+    pm.expect(pm.response.text()).to.include("Cannot deleted" || "not found");
+});
+
+
+
+__________________________________________________________
+ya están revisados
+________________
+pm.test("Payload must be valid and have a body", function () { 
+	// equivalente a decir que valide que sea 200
+     pm.response.to.be.ok; 
+     pm.response.to.be.withBody; // body tiene que exitir
+     pm.response.to.be.json; // además que sea un JSON válido
+});
+
+
+
+//Data type
+pm.test("Content-Type is present", function () {
+    pm.response.to.have.header("Content-Type");
+});
+
+pm.test("Content-Type is JSON", function () {
+    pm.response.to.be.json;
+})
+
+//FUNCTIONAL DELETE
+let jsonResponse = pm.response.json();
+
+pm.test("Response should be a parsable JSON", function() {
+    pm.expect(jsonResponse).to.be.ok;
+});
+
+pm.test("Response body should be an object", function() {
+    pm.expect(jsonResponse).to.be.an('object');
+});
+
+/** args, data, files, form son atributos de ejemplo */
+
+pm.test("Response body should be in the correct format", function() {
+    pm.expect(jsonResponse.args).to.be.a('object');
+    pm.expect(jsonResponse.data).to.be.a('string');
+    pm.expect(jsonResponse.files).to.be.a('object');
+    pm.expect(jsonResponse.form).to.be.a('object');
+    pm.expect(jsonResponse.headers).to.be.a('object');
+});
+
+
+
+

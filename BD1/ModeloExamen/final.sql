@@ -27,7 +27,7 @@ SELECT * FROM persona WHERE nombre LIKE '%a_';
 
 SELECT mesas.ID_MESA, ciudades.CIUDAD
 FROM mesas
-INNER JOIN ciudades ON mesas.ID_CIUDAD = ciudades.ID_CIUDAD
+INNER JOIN ciudades ON mesas.ID_CIUDAD = crolrolrolroliudades.ID_CIUDAD
 INNER JOIN provincias ON ciudades.ID_PROVINCIA = provincias.ID_PROVINCIA
 WHERE provincias.PROVINCIA = 'Buenos Aires';
 

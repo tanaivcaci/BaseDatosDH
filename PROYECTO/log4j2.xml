@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration packages="com.dh.digitalbooking.configuration">
+    <Properties>
+        <property name="Log_Home">Backend/logs/</property>
+    </Properties>
+    <appenders>
+         <!--Configuración de esta consola de salida-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--<! - La consola solo emite información de nivel y superior (onMatch), otros directamente rechazan (onMismatch), ACEPTAN (aceptan y superior), DENY (rechazan a continuación), NEUTRO (neutral, procesado por el siguiente ThresholdFilter) ->-->
+            <ThresholdFilter level="TRACE" onMatch="ACCEPT" onMismatch="DENY" />
+<!--            <! - Formato de registro de salida->-->
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss}| %-5level|%ip|%thread| %logger{50}| %msg%n" />
+        </Console>
+<!--        <! - Esto solo imprimirá toda la información de DEPURACIÓN, cada vez que el tamaño exceda el tamaño, el registro de este tamaño se almacenará automáticamente en la carpeta creada por año-mes y comprimido, como un archivo->-->
+        <RollingFile name="RollingFile_Debug" fileName="${Log_Home}/debug/debug.log" filePattern="${Log_Home}$${date:yyyy-MM}/app-%d{yyyyMMddHHmmssSSS}.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss}| %-5level|%ip|%thread| %logger{50}| %msg%n" />
+<!--            <! - Tamaño del archivo de registro->-->
+            <SizeBasedTriggeringPolicy size="20MB" />
+<!--            <! - Número máximo de archivos para mantener->-->
+            <DefaultRolloverStrategy max="20"/>
+           <!-- <! - En cuanto a por qué solo se imprimen los registros de nivel DEBUG, se debe a la siguiente etiqueta de Filtros,
+            onMatch = "ACEPTAR" significa hacer coincidir este nivel y más
+            onMatch = "DENY" significa que este nivel y superiores no coinciden
+            onMatch = "NEUTRAL" significa que el nivel y superior serán procesados ​​por el siguiente filtro. Si el actual es el último, coincidirá con el nivel y superior.
+            onMismatch = "ACEPTAR" significa coincidencia por debajo de este nivel
+            onMismatch = "NEUTRAL" significa que este nivel e inferior será procesado por el siguiente filtro. Si es el último, no coincidirá por debajo de este nivel->-->
+            <Filters>
+                <ThresholdFilter level="INFO" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </RollingFile>
+   <!--     <! - Esto solo imprimirá toda la información INFO, cada vez que el tamaño exceda el tamaño, el registro de este tamaño se almacenará automáticamente en la carpeta creada por año-mes y comprimido, como un archivo->-->
+        <RollingFile name="RollingFile_Info" fileName="${Log_Home}/info/info.log" filePattern="${Log_Home}$${date:yyyy-MM}/app-%d{yyyyMMddHHmmssSSS}.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss}| %-5level|%ip|%thread| %logger{50}| %msg%n" />
+            <SizeBasedTriggeringPolicy size="20MB" />
+            <DefaultRolloverStrategy max="20"/>
+            <Filters>
+                <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </RollingFile>
+        <!--<! - Esto solo imprimirá toda la información de WARN. Cada vez que el tamaño excede el tamaño, el registro de este tamaño se almacenará automáticamente en la carpeta creada por año-mes y se comprimirá como un archivo->-->
+        <RollingFile name="RollingFile_Warn" fileName="${Log_Home}/warn/warn.log" filePattern="${Log_Home}$${date:yyyy-MM}/app-%d{yyyyMMddHHmmssSSS}.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss}| %-5level|%ip|%thread| %logger{50}| %msg%n" />
+            <SizeBasedTriggeringPolicy size="20MB" />
+            <DefaultRolloverStrategy max="20"/>
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </RollingFile>
+      <!--  <! - Esto solo imprimirá toda la información de ERROR, cada vez que el tamaño excede el tamaño, el registro de este tamaño se almacenará automáticamente en la carpeta creada por año-mes y comprimido, como un archivo->-->
+        <RollingFile name="RollingFile_Error" fileName="${Log_Home}/error/error.log" filePattern="${Log_Home}$${date:yyyy-MM}/app-%d{yyyyMMddHHmmssSSS}.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss}| %-5level|%ip|%thread| %logger{50}| %msg%n" />
+            <SizeBasedTriggeringPolicy size="20MB" />
+            <DefaultRolloverStrategy max="20"/>
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </RollingFile>
+    </appenders>
+
+    <Loggers>
+        <!--<! - Luego defina el registrador, solo el apéndice que define el registrador e introduce,
+        El apéndice surte efecto. La aditividad predeterminada es verdadera, lo que significa que la información de impresión de este registrador se pasa al superior.
+        Aquí root es su superior, el nivel de impresión establecido por root es depuración, el nivel de registrador no es más bajo que él,
+        Entonces se imprimirá nuevamente en root->-->
+        <logger name="com.dh.digitalbooking" level="DEBUG" additivity="true">
+            <AppenderRef ref="RollingFile_Debug" />
+            <AppenderRef ref="RollingFile_Info" />
+            <AppenderRef ref="RollingFile_Warn" />
+            <AppenderRef ref="RollingFile_Error" />
+        </logger>
+<!--        <! - Crear un registrador raíz predeterminado->-->
+        <root level="DEBUG">
+            <AppenderRef ref="Console" />
+        </root>
+    </Loggers>
+</Configuration>
